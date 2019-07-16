@@ -1,17 +1,17 @@
 from base.base_page import BasePage
 
-class home_page(BasePage):
+class HomePage(BasePage):
 
     # Locators
     _navMenu = "navigationLabel"   #id
     _options = "options"   #id
     _logout = "logout"     #id
     _search = "//div[@id='navigationSearch']//input"    #xpath
-    _tariffs = "id-Tariffs"     #id
+    _tariffs = "//div[@id='navigationSearch']//div[@id='id-Tariffs']"     #xpath
     _confirmLogout = "//div[contains(@class,'roc-WindowBox')]//button[@id='yes']"   #xpath
 
     def __init__(self, driver):
-        super(home_page, self).__init__(driver) # Passing the driver instance to parent/super class
+        super(HomePage, self).__init__(driver) # Passing the driver instance to parent/super class
         self.driver = driver
 
     def clickNavigationMenu(self):
@@ -20,10 +20,12 @@ class home_page(BasePage):
     def clickOptions(self):
         self.clickElement(self._options)
 
-    def goToTariffs(self):
+    def navigateTo(self, targetScreenName):
         self.clickNavigationMenu()
-        self.sendKeys("Tariffs", self._search)
-        self.clickElement(self._tariffs)
+        self.sendKeys(targetScreenName, self._search, "xpath")
+
+        if targetScreenName == "Tariffs":
+            self.clickElement(self._tariffs, "xpath")
 
     def logout(self):
         self.clickOptions()

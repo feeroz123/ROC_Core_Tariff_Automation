@@ -1,3 +1,10 @@
+-- Perform Cleanup of Elements and Element Sets
+delete from element where elt_name like 'AutoTestElement%';
+commit;
+delete from element_set where est_name like 'AutoElementSet%';
+commit;
+
+
 -- Create Element Sets
 insert into ELEMENT_SET values((SELECT max(est_id)+1 FROM ELEMENT_SET),'AutoElementSet1','N','N',1,1);
 insert into ELEMENT_SET values((SELECT max(est_id)+1 FROM ELEMENT_SET),'AutoElementSet2','N','N',1,1);

@@ -1,6 +1,7 @@
+import logging
+
 from base.selenium_driver import SeleniumDriver
 from utilities import custom_logger as cl
-import logging
 
 
 class BasePage(SeleniumDriver):

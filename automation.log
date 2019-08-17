@@ -1,6 +1,0 @@
-16-07-2019 09:49:31 PM - BasePage - INFO : Element was clicked with locator: 'navigationLabel' and locator_type: id
-16-07-2019 09:49:31 PM - BasePage - INFO : Keys were sent to element with locator: '//div[@id='navigationSearch']//input' and locator_type: xpath
-16-07-2019 09:49:31 PM - BasePage - INFO : Element was clicked with locator: '//div[@id='navigationSearch']//div[@id='id-Tariffs']' and locator_type: xpath
-not sent to element with locator: 'username-input-area' and locator_type: id
-16-07-2019 09:49:18 PM - LoginPage - ERROR : *** Keys were not sent to element with locator: 'password-input-area' and locator_type: id
-16-07-2019 09:49:30 PM - LoginPage - ERROR : *** Element was not found with locator: 'btn' and locator_type: id

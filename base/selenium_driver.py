@@ -1,13 +1,15 @@
+import logging
+import os
+import time
+from traceback import print_stack
+
+from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import *
-from traceback import print_stack
+from selenium.webdriver.support.ui import WebDriverWait
+
 import utilities.custom_logger as cl
-import logging
-import time
-import os
 
 
 class SeleniumDriver:

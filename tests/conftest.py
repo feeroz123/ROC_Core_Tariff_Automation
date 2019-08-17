@@ -1,6 +1,7 @@
 import pytest
-from pages.login_page.login_page import LoginPage
+
 from base.webdriver_factory import get_browser_driver
+from pages.login_page.login_page import LoginPage
 
 
 @pytest.yield_fixture(scope="class")

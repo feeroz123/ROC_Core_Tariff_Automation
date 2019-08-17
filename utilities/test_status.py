@@ -1,6 +1,7 @@
-from base.selenium_driver import SeleniumDriver
-import utilities.custom_logger as cl
 import logging
+
+import utilities.custom_logger as cl
+from base.selenium_driver import SeleniumDriver
 
 
 class TestStatus(SeleniumDriver):

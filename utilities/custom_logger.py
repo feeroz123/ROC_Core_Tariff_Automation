@@ -1,5 +1,5 @@
-import logging
 import inspect
+import logging
 
 
 def custom_logging(logLevel=logging.DEBUG):

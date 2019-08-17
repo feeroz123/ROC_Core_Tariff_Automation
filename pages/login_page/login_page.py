@@ -1,6 +1,7 @@
-from base.base_page import BasePage
 import logging
+
 import utilities.custom_logger as cl
+from base.base_page import BasePage
 
 
 class LoginPage(BasePage):

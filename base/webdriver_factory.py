@@ -1,5 +1,4 @@
 from selenium import webdriver
-import pytest
 
 
 def get_browser_driver(browser, osType):

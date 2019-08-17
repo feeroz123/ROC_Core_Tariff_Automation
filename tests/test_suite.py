@@ -1,8 +1,10 @@
-from pages.login_page.login_page import LoginPage
-from pages.home_page.homepage import HomePage
-from utilities.test_status import TestStatus
 import unittest
+
 import pytest
+
+from pages.home_page.homepage import HomePage
+from pages.login_page.login_page import LoginPage
+from utilities.test_status import TestStatus
 
 
 @pytest.mark.usefixtures("class_setup")

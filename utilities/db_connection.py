@@ -1,3 +1,10 @@
+"""
+Sample implementation:
+    db_conn = DBConnection()
+    result = db_conn.execute_sql("select * from element_set")
+    print(result)
+"""
+
 import logging
 import cx_Oracle
 from utilities import custom_logger as cl
@@ -17,29 +24,30 @@ class DBConnection:
             db_sid = 'orcl'  # Reference DB Oracle SID
             db_host = 'localhost'  # Reference DB Host Machine
             db_port = '1521'  # Reference DB Oracle Port
-
-            self.log.debug("Attempting database connection")
             conn_string = f"{db_user_name}/{db_user_password}@{db_sid}"
+
+            self.log.info("Attempting database connection")
             self.conn = cx_Oracle.connect(conn_string)
             self.cursor = self.conn.cursor()
             self.log.info("Database connection established.")
         except:
-            self.log.error("**** Database connection failed.")
+            self.log.exception("**** Database connection failed.")
         return self.cursor
 
     def execute_sql(self, query):
         try:
+            query_result = []
             cursor = self.get_db_connection()
-            print(cursor)
-            cursor.execute(query)
-            for row in cursor:
-                print(row)
-        except:
-            print("The connection to db has issues. Query couldn't be executed.")
+            results = cursor.execute(query)
+            for row in results:
+                query_result.append(row)
+            self.log.debug("Executed SQL query: " + query)
+        except cx_Oracle.DatabaseError:
+            self.log.exception("**** The connection to db has issues. Query couldn't be executed.")
+        except cx_Oracle.InterfaceError:
+            self.log.exception("**** Database connection is not open")
         finally:
+            return query_result
             self.cursor.close()
             self.conn.close()
-
-
-db_conn = DBConnection()
-db_conn.execute_sql("select * from element;")
+            self.log.debug("Database connection is closed")

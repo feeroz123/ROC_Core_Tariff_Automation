@@ -36,11 +36,9 @@ class DBConnection:
 
     def execute_sql(self, query):
         try:
-            query_result = []
             cursor = self.get_db_connection()
             results = cursor.execute(query)
-            for row in results:
-                query_result.append(row)
+            query_result = [row for row in results]    # Populating every row from query results using List Comprehension method
             self.log.debug("Executed SQL query: " + query)
         except cx_Oracle.DatabaseError:
             self.log.exception("**** The connection to db has issues. Query couldn't be executed.")
